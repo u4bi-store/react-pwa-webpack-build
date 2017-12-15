@@ -1,6 +1,8 @@
 const path        = require('path'),
 	  webpack     = require('webpack'),
-      HtmlWebpack = require('html-webpack-plugin');
+	  HtmlWebpack = require('html-webpack-plugin'),
+	  ExtractText = require("extract-text-webpack-plugin");
+	  
 
 module.exports = {
 	entry: {        
@@ -19,6 +21,29 @@ module.exports = {
 				use: [
 				  { loader: 'babel-loader' }
 				]
+			},
+			{
+				test: /\.(css|scss)$/,
+				exclude: /node_modules/,
+				use: ExtractText.extract({
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+							  modules: true,
+							  localIdentName: '[name]_[local]_[hash:base64:5]',
+							  sourceMap: true,
+							}
+						},
+						{ 
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true,
+							}
+						}
+					],
+					fallback: 'style-loader'
+				}) 
 			}
 		]
 	},
@@ -30,6 +55,11 @@ module.exports = {
 		new HtmlWebpack({
             template: './src/index.html',
             inject: false
-        }),
+		}),
+		new ExtractText({
+			filename: '[name].css',
+			allChunks: true,
+			ignoreOrder: true
+		})
 	]
 }
