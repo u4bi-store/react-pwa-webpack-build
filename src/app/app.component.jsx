@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styles from './app.component.scss';
 import styles2 from './app.component.css';
 import logo from '../assets/u4bi.png';
