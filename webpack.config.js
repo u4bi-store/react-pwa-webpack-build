@@ -1,6 +1,7 @@
 const path        = require('path'),
 	  webpack     = require('webpack'),
 	  HtmlWebpack = require('html-webpack-plugin'),
+	  ScriptExtHtmlWebpack = require('script-ext-html-webpack-plugin'),
 	  ExtractText = require("extract-text-webpack-plugin");
 	  
 
@@ -60,6 +61,9 @@ module.exports = {
 		new HtmlWebpack({
             template: './src/index.html',
             inject: false
+		}),
+		new ScriptExtHtmlWebpack({
+			defaultAttribute: 'defer'
 		}),
 		new ExtractText({
 			filename: '[name].css',
