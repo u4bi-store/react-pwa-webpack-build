@@ -38,16 +38,11 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 modules: true,
-                localIdentName: '[name]_[local]_[hash:base64:5]',
-                sourceMap: true
+                localIdentName: '[name]_[local]_[hash:base64:5]'
               }
             },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true
-              }
-            }
+            { loader: 'sass-loader' },
+            { loader: 'postcss-loader' }
           ],
           fallback: 'style-loader'
         })
