@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "precommit": "lint-staged"    
+  },
+  "lint-staged": {
+    "*.js?(x)": [
+      "prettier --write --single-quote true",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -18,6 +25,7 @@
     "css-loader": "^0.28.7",
     "eslint": "^4.13.1",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
@@ -25,7 +33,10 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
     "node-sass": "^4.7.2",
+    "prettier": "^1.9.2",
     "sass-loader": "^6.0.6",
     "script-ext-html-webpack-plugin": "^1.8.8",
     "style-loader": "^0.19.1",

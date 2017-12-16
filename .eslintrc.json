@@ -7,11 +7,11 @@
         }
     },
     "extends": [
-        "airbnb"
+        "airbnb",
+        "prettier"
     ],
     "rules": {
-        "no-console": 0,
-        "no-unused-vars": 1 
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     },
     "globals": {
         "window": true,
