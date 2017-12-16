@@ -6,6 +6,7 @@ const path = require('path'),
 
 module.exports = {
   entry: {
+    vendor: './src/vendor.js',
     app: './src/main.js'
   },
   output: {
