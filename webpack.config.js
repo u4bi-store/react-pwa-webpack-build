@@ -52,6 +52,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
             parallel: true,
             output: { comments: false },
